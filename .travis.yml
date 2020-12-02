@@ -1,7 +1,7 @@
 anguage: java
 
 jdk:
-  - openjdk15
+  - openjdk14
 
 sudo: false
 
