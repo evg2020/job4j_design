@@ -1,5 +1,6 @@
-package ru.job4j.it;
+package chapter_001.it;
 
+//итератор для одномерного массива чисел.
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -13,12 +14,14 @@ public class ArrayIt implements Iterator<Integer> {
         this.data = data;
         this.pointBack = data.length - 1;
     }
+    // Метод hasNext проверяет, расположена ли ячейка в диапазоне масива.
 
     @Override
     public boolean hasNext() {
         return point < data.length;
     }
-
+// Метод next возвращает первый (номер толь) элемент ячейки.
+// Второй вызов метода next вернет второй элемент и так далее.
     @Override
     public Integer next() {
         if (!hasNext()) {
@@ -41,7 +44,7 @@ public class ArrayIt implements Iterator<Integer> {
 
     public static void main(String[] args) {
         ArrayIt it = new ArrayIt(new int[]{1, 2, 3});
-        System.out.println(it.previus());
+        System.out.println(it.next());
         System.out.println(it.previus());
         System.out.println(it.previus());
     }
