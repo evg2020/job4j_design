@@ -1,8 +1,7 @@
 package chapter_001.it;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class FlatMap<T> implements Iterator<T> {
     private final Iterator<Iterator<T>> data;
@@ -31,6 +30,7 @@ public class FlatMap<T> implements Iterator<T> {
         return cursor.next();
 
     }
+
     public static void main(String[] args) {
         Iterator<Iterator<Integer>> data = List.of(
                 List.of(1, 2, 3).iterator(),
@@ -40,6 +40,16 @@ public class FlatMap<T> implements Iterator<T> {
         FlatMap<Integer> flat = new FlatMap<>(data);
         while (flat.hasNext()) {
             System.out.println(flat.next());
+        }
+
+        List<String> list = new ArrayList<>();
+        list.add("Привет ");
+        list.add("Обучающимся ");
+        list.add("На ");
+        list.add("JavaRush ");
+        Iterator iterator = list.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next());
         }
     }
 }
