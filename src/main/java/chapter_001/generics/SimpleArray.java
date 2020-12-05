@@ -29,7 +29,7 @@ public class SimpleArray<T> implements Iterable<T> {
     }
 
     public void set(int index, T model) throws IndexOutOfBoundsException {
-        simpArray[Objects.checkIndex(index, simpArray.length)] = model;
+        simpArray[Objects.checkIndex(index, point)] = model;
     }
 
 /*3. Копирование элементов массива
@@ -44,13 +44,13 @@ public class SimpleArray<T> implements Iterable<T> {
      System.arraycopy (sourceArr, 5, destArr, 0, 5);*/
 
     public void remove(int index) throws IndexOutOfBoundsException {
-        index = Objects.checkIndex(index, simpArray.length);
+        index = Objects.checkIndex(index, point);
         System.arraycopy(simpArray, index + 1, simpArray, index, simpArray.length - index - 1);
         point--;
     }
 
     public T get(int index) throws IndexOutOfBoundsException {
-        return simpArray[Objects.checkIndex(index, simpArray.length)];
+        return simpArray[Objects.checkIndex(index, point)];
     }
 
     @NotNull
@@ -59,7 +59,7 @@ public class SimpleArray<T> implements Iterable<T> {
         return new Iterator<T>() {
             @Override
             public boolean hasNext() {
-                return point < simpArray.length;
+                return calculate < point;
             }
 
             @Override
