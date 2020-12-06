@@ -20,7 +20,12 @@ public final class MemStore<T extends Base> implements Store<T> {
 
     @Override
     public boolean delete(String id) {
-        return delete(id);
+        int index = Integer.parseInt(findById(id).getId());
+        if (index == -1) {
+            return false;
+        }
+        mem.remove(index);
+        return true;
     }
 
     @Override
