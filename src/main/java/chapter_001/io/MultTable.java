@@ -1,7 +1,7 @@
 package chapter_001.io;
 
 import java.io.FileOutputStream;
-import java.util.Arrays;
+
 
 public class MultTable {
     public static void main(String[] args) {
