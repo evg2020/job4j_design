@@ -14,7 +14,7 @@ public class SimArrayIterator<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return index < array.size();
+        return index < 10;
     }
 
     @Override
