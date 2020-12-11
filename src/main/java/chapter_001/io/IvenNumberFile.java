@@ -16,9 +16,9 @@ public class IvenNumberFile {
             for (String line : lines) {
                 int intLine = Integer.parseInt(line);
                 if (intLine % 2 == 0) {
-                    System.out.println(line + " even");
+                    System.out.println(line + " --even");
                 } else {
-                    System.out.println(line + " not even");
+                    System.out.println(line + " ---not even");
                 }
             }
 
