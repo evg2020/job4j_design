@@ -1,14 +1,13 @@
 package chapter_001.io;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.io.FileOutputStream;
+
 
 public class LogFilter {
+
+    private static Object PrintWriter;
 
     public static List<String> filter(String file) {
         String eq = "404";
@@ -32,10 +31,25 @@ public class LogFilter {
         return findEq;
     }
 
+    public static void save(List<String> log, String file) {
+        try (PrintWriter out = new PrintWriter(
+                new BufferedOutputStream(
+                        new FileOutputStream(file)
+                ))) {
+            for(String str : log) {
+                out.write(str + System.lineSeparator());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static void main(String[] args) {
         List<String> log = filter("log.txt");
         for (String res : log) {
             System.out.println(res);
         }
+        save(log, "404.txt");
     }
 }
