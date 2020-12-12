@@ -1,26 +1,41 @@
 package chapter_001.io;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.io.FileOutputStream;
 
 public class LogFilter {
+
     public static List<String> filter(String file) {
-        List<String> lines = new ArrayList<String>();
-        try (BufferedReader in = new BufferedReader(new FileReader(file))) {
-            in.lines().forEach(lines::add);
-            for (String line : lines) {
-                System.out.println(line);
+        String eq = "404";
+        List<String> findEq = new ArrayList<>();
+        try (FileInputStream in = new FileInputStream("log.txt")) {
+            StringBuilder text = new StringBuilder();
+            int read;
+            while ((read = in.read()) != -1) {
+                text.append((char) read);
             }
-        } catch (Exception e) {
+            String[] lines = text.toString().split(System.lineSeparator());
+            for (String line : lines) {
+                if (line.contains(eq)) {
+                    findEq.add(line);
+                }
+            }
+        } catch (
+                Exception e) {
             e.printStackTrace();
         }
-        return lines;
+        return findEq;
     }
 
     public static void main(String[] args) {
         List<String> log = filter("log.txt");
-        System.out.println(log);
+        for (String res : log) {
+            System.out.println(res);
+        }
     }
 }

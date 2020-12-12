@@ -21,6 +21,7 @@ public class IvenNumberFile {
                     System.out.println(line + " ---not even");
                 }
             }
+            System.out.println(Arrays.toString(lines));
 
         } catch (Exception e) {
             e.printStackTrace();

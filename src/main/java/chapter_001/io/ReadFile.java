@@ -11,10 +11,11 @@ public class ReadFile {
                 text.append((char) read);
 
             }
-            String[] lines = text.toString().split(System.lineSeparator());
+            System.out.println(text);
+            /*String[] lines = text.toString().split(" ");
             for (String line : lines) {
                 System.out.println(line);
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
