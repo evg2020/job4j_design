@@ -21,7 +21,7 @@ public class LogFilter {
             }
             String[] lines = text.toString().split(System.lineSeparator());
             for (String line : lines) {
-                if (line.contains(eq)) {
+                if (eq.equals(line.split(" ")[8])) {
                     findEq.add(line);
                 }
             }
