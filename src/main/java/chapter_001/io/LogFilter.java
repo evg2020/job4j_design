@@ -36,7 +36,7 @@ public class LogFilter {
                 new BufferedOutputStream(
                         new FileOutputStream(file)
                 ))) {
-            for(String str : log) {
+            for (String str : log) {
                 out.write(str + System.lineSeparator());
             }
         } catch (Exception e) {
