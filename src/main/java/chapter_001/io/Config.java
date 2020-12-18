@@ -5,10 +5,11 @@ import java.util.Map;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.StringJoiner;
+import java.util.Properties;
 
 public class Config {
     private final String path;
-    private final Map<String, String> value = new HashMap<String, String>();
+    private final Map<String, String> values = new HashMap<String, String>();
 
 
     public Config(final String path) {
@@ -20,20 +21,20 @@ public class Config {
     public void load() {
         try (BufferedReader in = new BufferedReader(new FileReader(this.path))) {
             in.lines().forEach(e -> {
-                if (!value.isEmpty() && !e.contains("##")) {
+                if (!e.isEmpty()) {
                     String[] prop = e.split("=");
-                    value.put(prop[0], prop[1]);
+                    values.put(prop[0], prop[1]);
                 }
             });
         } catch (Exception e) {
             e.printStackTrace();
-
         }
     }
 
 //Реализуйте метод value(String key) он должен возвращать значение ключа.
+
     public String value(String key) {
-        return value.get(key);
+        return this.values.get(key);
     }
 
     @Override
@@ -48,7 +49,9 @@ public class Config {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Config("app.properties"));
+        Config conf = new Config("./data/pair_without_comment.properties");
+        System.out.println(conf);
+        System.out.println(conf.value("name"));
     }
 
 }

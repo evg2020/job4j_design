@@ -9,7 +9,7 @@ public class ConfigTest {
 
     @Test
     public void whenPairWithoutComment() {
-        String path = ".pair_without_comment.properties";
+        String path = "./data/pair_without_comment.properties";
         Config config = new Config(path);
         config.load();
         assertThat(
