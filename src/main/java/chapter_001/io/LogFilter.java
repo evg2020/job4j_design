@@ -43,8 +43,6 @@ public class LogFilter {
             e.printStackTrace();
         }
     }
-
-
     public static void main(String[] args) {
         List<String> log = filter("log.txt");
         for (String res : log) {

@@ -51,8 +51,7 @@ public class Config {
     public static void main(String[] args) {
         Config conf = new Config("./data/pair_without_comment.properties");
         conf.load();
-        System.out.println(conf);
+        System.out.println(conf.toString());
         System.out.println(conf.value("name"));
     }
-
 }
