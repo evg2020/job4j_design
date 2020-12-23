@@ -32,6 +32,7 @@ public class AnalizyTest {
                     "200 11:02:02"
             );
             list.forEach(e -> out.write(e + "\n"));
+
         }
         analyze.unavailable(source.getAbsolutePath(), target.getAbsolutePath());
         StringBuilder res = new StringBuilder();
