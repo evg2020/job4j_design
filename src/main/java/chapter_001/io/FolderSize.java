@@ -12,7 +12,7 @@ public class FolderSize {
     public static long getFolderSize(File folder) {
         long length = 0;
         File[] files = folder.listFiles();
-        System.out.println(Arrays.toString(files));
+//        System.out.println(Arrays.toString(files));
         int count = files.length;
 
         for (int i = 0; i < count; i++) {
@@ -42,7 +42,6 @@ public class FolderSize {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 }
