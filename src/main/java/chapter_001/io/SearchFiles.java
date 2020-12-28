@@ -1,12 +1,12 @@
 package chapter_001.io;
 
-
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.FileVisitor;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -30,7 +30,7 @@ public class SearchFiles implements FileVisitor<Path> {
         if (predicate.test(file)) {
             filesAll.add(file);
         }
-        return CONTINUE                                                                                                                                                                                                                                                                           ;
+        return FileVisitResult.CONTINUE;
     }
 
     @Override
@@ -46,4 +46,9 @@ public class SearchFiles implements FileVisitor<Path> {
     public List<Path> filesAll() {
         return filesAll;
     }
+
+
+    /*public static void main(String[] args) {
+        System.out.println(Arrays.toString(FileVisitResult.values()));
+    }*/
 }

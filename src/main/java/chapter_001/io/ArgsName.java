@@ -20,7 +20,7 @@ public class ArgsName {
         for (String arg : args) {
 
             String[] data = arg.split("=");
-            values.put(data[0].substring(1), data[1]);
+            values.put(data[0], data[1]);
         }
     }
 
@@ -32,9 +32,9 @@ public class ArgsName {
 
     public static void main(String[] args) {
         ArgsName jvm = ArgsName.of(new String[]{"-Xmx=512", "-encoding=UTF-8"});
-        System.out.println(jvm.get("Xmx"));
+        System.out.println(jvm.get("-Xmx"));
 
         ArgsName zip = ArgsName.of(new String[]{"-out=project.zip", "-encoding=UTF-8"});
-        System.out.println(zip.get("out"));
+        System.out.println(zip.get("-out"));
     }
 }
