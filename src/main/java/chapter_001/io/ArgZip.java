@@ -3,7 +3,7 @@ package chapter_001.io;
 //2. В качестве ключа передается  расширения файлов, которые не нужно включать в архив.
 //3. Архив должен сохранять структуру проекта. То есть содержать подпапки.
 //4. Запуск проекта.
-//java -jar pack.jar -d=c:\project\job4j\ -e=class -o=project.zip
+//-d=c:\project -e*=java -o=project.zip
 //java -jar pack.jar - Это собранный jar.
 //
 //-d - directory - которую мы хотим архивировать

@@ -35,15 +35,13 @@ public class Zip {
     public List<Path> fileFilter(String ext) throws IOException {
         SearchFiles filter = new SearchFiles(p -> !p.toFile().getName().endsWith(ext));
         Files.walkFileTree(root, filter);
-        return filter.filesAll();
+        return filter.getfilesAll();
     }
 
     public static void main(String[] args) throws IOException {
         ArgZip argZip = new ArgZip(args);
         Zip zip = new Zip(Paths.get(argZip.directory()));
-        zip.packSingleFiles(
-                zip.fileFilter(argZip.exclude()),
-                new File(argZip.output())
+        zip.packSingleFiles(zip.fileFilter(argZip.exclude()), new File(argZip.output())
         );
     }
 

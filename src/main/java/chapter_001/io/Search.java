@@ -12,7 +12,7 @@ public class Search {
     public static List<Path> search(Path root, String ext) throws IOException {
         SearchFiles seacher = new SearchFiles(p -> p.toFile().getName().endsWith(ext));
         Files.walkFileTree(root, seacher);
-        return seacher.filesAll();
+        return seacher.getfilesAll();
     }
 
     public static void main(String[] args) throws IOException {

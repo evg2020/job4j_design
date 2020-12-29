@@ -13,10 +13,11 @@ import java.util.function.Predicate;
 import static java.nio.file.FileVisitResult.*;
 
 public class SearchFiles implements FileVisitor<Path> {
+
     private Predicate<Path> predicate;
     private List<Path> filesAll = new ArrayList<>();
 
-    public SearchFiles(Predicate<Path> predicate) {
+   SearchFiles(Predicate<Path> predicate) {
         this.predicate = predicate;
     }
 
@@ -33,6 +34,10 @@ public class SearchFiles implements FileVisitor<Path> {
         return FileVisitResult.CONTINUE;
     }
 
+    public List<Path> getfilesAll() {
+        return filesAll;
+    }
+
     @Override
     public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
         return SKIP_SUBTREE;
@@ -43,9 +48,7 @@ public class SearchFiles implements FileVisitor<Path> {
         return CONTINUE;
     }
 
-    public List<Path> filesAll() {
-        return filesAll;
-    }
+
 
 
     /*public static void main(String[] args) {

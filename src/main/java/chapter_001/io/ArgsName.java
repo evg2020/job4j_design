@@ -7,7 +7,7 @@ import java.util.Map;
 //java -Xmx=514 -encoding=UTF-8
 
 public class ArgsName {
-    private final Map<String, String> values = new HashMap<>();
+    final Map<String, String> values = new HashMap<>();
 
     public String get(String key) {
         return values.get(key);
@@ -16,6 +16,10 @@ public class ArgsName {
     private void parse(String[] args) {
         if (args.length == 0) {
             throw new IllegalArgumentException("Incorrect number of arguments");
+        }
+        if (args.length < 2) {
+            throw new IllegalArgumentException("Недостаточно количество аргументов");
+
         }
         for (String arg : args) {
 
@@ -36,5 +40,6 @@ public class ArgsName {
 
         ArgsName zip = ArgsName.of(new String[]{"-out=project.zip", "-encoding=UTF-8"});
         System.out.println(zip.get("-out"));
+        System.out.println(zip.values);
     }
 }
