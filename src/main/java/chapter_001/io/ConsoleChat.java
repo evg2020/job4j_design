@@ -59,7 +59,6 @@ public class ConsoleChat {
         List<String> answer = readLine(botAnswers);
         int pozition = (int) (Math.random() * answer.size());
         return answer.get(pozition);
-
     }
 
     private List<String> readLine(String path) {
