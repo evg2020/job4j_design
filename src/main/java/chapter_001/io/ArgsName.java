@@ -17,12 +17,11 @@ public class ArgsName {
         if (args.length == 0) {
             throw new IllegalArgumentException("Incorrect number of arguments");
         }
-        if (args.length < 2) {
-            throw new IllegalArgumentException("Недостаточно количество аргументов");
 
-        }
         for (String arg : args) {
-
+            if (args.length < 2) {
+                throw new IllegalArgumentException("Недостаточно количество аргументов");
+            }
             String[] data = arg.split("=");
             values.put(data[0], data[1]);
         }
