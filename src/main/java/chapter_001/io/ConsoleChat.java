@@ -31,7 +31,7 @@ public class ConsoleChat {
         String userMessage = CONTINUE;
         int com = 1;
         while (!userMessage.equals(OUT)) {
-            if (!userMessage.equals(STOP) && com != 2) {
+            if (!userMessage.equals(STOP) && com == 1) {
                 String botMessage = "bot:  " + botAnswer();
                 System.out.println(botMessage);
                 dialog.append(botMessage).append(System.lineSeparator());
@@ -56,8 +56,8 @@ public class ConsoleChat {
 
     private String botAnswer() {
         List<String> answer = readLine(botAnswers);
-        int pozition = (int) (Math.random() * answer.size());
-        return answer.get(pozition);
+        int position = (int) (Math.random() * answer.size());
+        return answer.get(position);
     }
 
     private List<String> readLine(String path) {
@@ -81,5 +81,6 @@ public class ConsoleChat {
     public static void main(String[] args) {
         ConsoleChat cc = new ConsoleChat("logfile.txt", "bot.txt");
         cc.run();
+//        System.out.println(cc.readLine(cc.botAnswers));
     }
 }
