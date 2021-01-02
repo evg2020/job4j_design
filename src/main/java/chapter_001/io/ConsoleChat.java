@@ -42,7 +42,6 @@ public class ConsoleChat {
             } else if (userMessage.equals(STOP) || com == 2) {
                 if ((userMessage.equals(CONTINUE))) {
                     com = 1;
-                    continue;
                 } else {
                     System.out.print("user: ");
                     userMessage = sc.nextLine();
