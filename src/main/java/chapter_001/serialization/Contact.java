@@ -35,15 +35,13 @@ public class Contact implements Serializable {
         /* Запись объекта в файл */
         File tempFile = Files.createTempFile(null, null).toFile();
         try (FileOutputStream fos = new FileOutputStream(tempFile);
-             ObjectOutputStream oos =
-                     new ObjectOutputStream(fos)) {
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             oos.writeObject(contact);
         }
 
         /* Чтение объекта из файла */
         try (FileInputStream fis = new FileInputStream(tempFile);
-             ObjectInputStream ois =
-                     new ObjectInputStream(fis)) {
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
             final Contact contactFromFile = (Contact) ois.readObject();
             System.out.println(contactFromFile);
         }
