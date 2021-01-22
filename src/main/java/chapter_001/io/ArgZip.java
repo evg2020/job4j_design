@@ -35,6 +35,6 @@ public class ArgZip {
     }
 
     public String output() {
-        return argsName.get("-o");
+        return argsName.get("-o") ;
     }
 }
