@@ -1,0 +1,10 @@
+create database cars;
+create table cars(
+  id primary key,
+  mark varchar(255),
+  years int,
+  area text
+);
+insert into cars(mark, years, area) values ('Ferrari', 1985, 'Italia');
+select * from cars;
+ delete from  cars;
