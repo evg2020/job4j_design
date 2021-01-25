@@ -8,4 +8,5 @@ create table cars(
 insert into cars(mark, years, area) values ('Ferrari', 1985, 'Italia');
 insert into cars(mark, years, area) values ('BMW', 1985, 'Rusia');
 update cars set area = 'RUS';
+delete from cars;
 select * from cars;
