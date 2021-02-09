@@ -22,29 +22,29 @@ create table rules(
 create table item(
   id serial primary key,
   name varchar(255),
-  item_id int references user(id)
+  user_id int references user(id)
 );
 
 create table comments(
   id serial primary key,
   name varchar(255),
-  comments_id references item(id)
+  item_id references item(id)
 );
 
 create table attaches(
   id serial primary key,
   name varchar(255),
-  attaches_id references item(id)
+  item_id references item(id)
 );
 
 create table category(
   id serial primary key,
   name varchar(255),
-  cattegory_id references item(id)
+  item_id references item(id)
 );
 
 create table state(
   id serial primary key,
   name varchar(255),
-  state_id references item(id)
+  item_id references item(id)
 );
