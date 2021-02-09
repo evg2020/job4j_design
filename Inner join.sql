@@ -18,5 +18,9 @@ insert  into schoolchild(name, school_id) VALUES ('Ivan', 3);
 
 select * from schoolchild;
 
-select ss.name as Имя, s.number  from schoolchild as ss join school as s
+select *  from schoolchild as ss join school as s
+    on ss.school_id = s.id;
+select ss.name , s.number  from schoolchild as ss join school as s
+    on ss.school_id = s.id;
+select ss.name as Имя ученика, s.number as Номер школы from schoolchild as ss join school as s
     on ss.school_id = s.id;
