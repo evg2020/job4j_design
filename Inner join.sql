@@ -22,5 +22,5 @@ select *  from schoolchild as ss join school as s
     on ss.school_id = s.id;
 select ss.name , s.number  from schoolchild as ss join school as s
     on ss.school_id = s.id;
-select ss.name as Имя ученика, s.number as Номер школы from schoolchild as ss join school as s
+select ss.name as Имя_ученика, s.number as Номер_школы from schoolchild as ss join school as s
     on ss.school_id = s.id;
