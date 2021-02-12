@@ -43,6 +43,6 @@ select p.name, avg(d.price) from people p JOIN devices_people d_p on p.id = d_p.
 JOIN devices d on d.id = d_p.devices_id group by p.name;
 
 
--- Дополнить запрос п.4. условием, что цена устройства должны быть больше 1500
+-- Дополнить запрос п.4. условием, что цена устройства должны быть больше 15
 select p.name, avg(d.price) from devices_people d_p join people p on p.id = d_p.people_id
-join devices d on d.id = d_p. devices_
+join devices d on d.id = d_p. devices group by p.name having avg(d.price) > 15;
