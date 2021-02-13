@@ -13,6 +13,11 @@ type(id, name)
 7. Написать запрос, который выводит тип продуктов, которых осталось меньше 10 штук.
 8. Вывести все продукты и их тип.*/
 
+create table type(
+  id serial primary key ,
+  name varchar(255)
+);
+
 create table product(
   id serial primary key ,
   name varchar(255),
@@ -21,10 +26,6 @@ create table product(
   type_id int references type(id)
 );
 
-create table type(
-  id serial primary key ,
-  name varchar(255)
-);
 
 insert into type(name) values ('milk_prod');
 insert into type(name)  values ('bread_prod');
@@ -34,6 +35,7 @@ insert into type(name) values ('oil_prod');
 
 insert into product(name, expired_date, price, type_id) VALUES ('Пармалат', '2021-03-04', 64.23, 1);
 insert into product(name, expired_date, price, type_id) VALUES ('Дом в деревне', '2021-03-04', 55.23, 1);
+insert into product(name, expired_date, price, type_id) VALUES ('Матроскин', '2021-06-04', 67.13, 1);
 ;
 insert into product(name, expired_date, price, type_id) VALUES ('Бородинский', '2021-02-21', 22.11, 2);
 insert into product(name, expired_date, price, type_id) VALUES ('Белый', '2021-02-23', 21.11, 2);
