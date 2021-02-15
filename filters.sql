@@ -60,8 +60,10 @@ where t.name = 'bread_prod';
 --3. Написать запрос, который выводит все продукты,
 -- срок годности которых заканчивается в следующем месяце.
 -- select p.name, p.expired_date from product  as p where p.expired_date > now() + interval '1 month';
--- select p.name, p.expired_date from product  as p where p.expired_date > current_date + interval '1 month';
-select p.name, p.expired_date from product  as p where p.expired_date <'2021-04-30' and p.expired_date >'2021-04-01' ;
+select name, expired_date from product  where expired_date > current_date + interval '1 month';
+select name, expired_date from product  where expired_date <'2021-03-31' and expired_date >'2021-03-01' ;
+select name, expired_date from product
+where  (extract (month from expired_date) - extract (month from (current_date + interval '1 month'))) = 0;
 
 --4. Написать запрос, который выводит самый дорогой продукт.
 select
