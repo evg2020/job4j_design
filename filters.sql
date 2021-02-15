@@ -64,6 +64,7 @@ select name, expired_date from product  where expired_date > current_date + inte
 select name, expired_date from product  where expired_date <'2021-03-30' and expired_date >'2021-03-01' ;
 select name, expired_date from product
 where  extract (month from expired_date) - extract (month from (current_date )) = 1;
+S
 
 --4. Написать запрос, который выводит самый дорогой продукт.
 select
@@ -77,8 +78,13 @@ where p.price = (select max(p.price) from product p);
 -- который выводит количество всех продуктов определенного типа.
  select count(p.id) from product p   where p.type_id = 2; --2 for bred_prod
 
- select t.name, count(*) from product p join type t on t.id = p.type_id
-group by t.name having t.name = 'bread_prod'
+ select t.name, count(*) from product p
+ join type t on t.id = p.type_id
+ group by t.name
+ having t.name = 'bread_prod';
+
+
+
 
 
 select t.name, count(*) from product p
