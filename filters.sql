@@ -34,8 +34,9 @@ insert into type(name) values ('oil_prod');
 
 
 insert into product(name, expired_date, price, type_id) VALUES ('Пармалат', '2021-03-04', 64.23, 1);
+insert into product(name, expired_date, price, type_id) VALUES ('Пармалат', '2022-03-04', 64.23, 1);
 insert into product(name, expired_date, price, type_id) VALUES ('Дом в деревне', '2021-03-04', 55.23, 1);
-insert into product(name, expired_date, price, type_id) VALUES ('Матроскин', '2021-04-04', 67.13, 1);
+insert into product(name, expired_date, price, type_id) VALUES ('Матроскин', '2022-04-04', 67.13, 1);
 ;
 insert into product(name, expired_date, price, type_id) VALUES ('Бородинский', '2021-02-21', 22.11, 2);
 insert into product(name, expired_date, price, type_id) VALUES ('Белый', '2021-02-23', 21.11, 2);
@@ -63,8 +64,9 @@ where t.name = 'bread_prod';
 select name, expired_date from product  where expired_date > current_date + interval '1 month';
 select name, expired_date from product  where expired_date <'2021-03-30' and expired_date >'2021-03-01' ;
 select name, expired_date from product
-where  extract (month from expired_date) - extract (month from (current_date )) = 1;
-S
+where expired_date > date_trunc('month', now() + interval '1 month')
+and expired_date < date_trunc('month', now() + interval '2 month');
+
 
 --4. Написать запрос, который выводит самый дорогой продукт.
 select
